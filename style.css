@@ -1,0 +1,387 @@
+:root {
+  /* Primary */
+  --crl-Primary-light: hsl(148, 38%, 91%);
+  --crl-Primary-dark: hsl(169, 82%, 27%);
+  --crl-red: hsl(0, 66%, 54%);
+
+  /* Secondary */
+  --crl-White: hsl(0, 0%, 100%);
+  --crl-Secondary-light: hsl(186, 15%, 59%);
+  --crl-Secondary-dark: hsl(187, 24%, 22%);
+
+  /* Font */
+  --font-Size: clamp(2.5rem, 2.4cqw, 3rem);
+  --font-Weight-bold: 700;
+  --font-Weight-regular: 400;
+}
+/* ----------------------------------------------Reset */
+@font-face {
+  font-family: "Karla";
+  src: url(./assets/fonts/static/Karla-Bold.ttf) format("truetype");
+  font-weight: var(--font-Weight-bold);
+}
+
+@font-face {
+  font-family: "Karla";
+  src: url(./assets/fonts/static/Karla-Regular.ttf) format("truetype");
+  font-weight: var(--font-Weight-regular);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* 10px = 1rem */
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  background-color: var(--crl-Primary-light);
+  line-height: 1.4;
+}
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* -----------------------Base */
+.contact-form {
+  --_width: clamp(28rem, 95%, 36rem);
+  width: var(--_width);
+  margin: calc(100vh / 4) auto;
+  background-color: var(--crl-White);
+  border-radius: 1rem;
+  padding: 1rem 0;
+  box-shadow: 0 0.1rem 0.1rem var(--crl-White);
+}
+
+@media only screen and (min-width: 64em) {
+  .contact-form {
+    --_width: clamp(60rem, 100%, 65rem);
+  }
+}
+
+section {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+/*-------------------------------heading */
+.contact-form__header {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.contact-form__header h1 {
+  font-weight: var(--font-Weight-bold);
+  color: var(--crl-Secondary-dark);
+  font-size: var(--font-Size);
+}
+
+/* -------------Details */
+
+@media only screen and (min-width: 64em) {
+  .contact-form__details .wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+  .contact-form__details .wrapper label {
+    flex: 1;
+  }
+}
+
+.heading-secondary {
+  display: block;
+  color: var(--crl-Secondary-dark);
+  font-weight: var(--font-Weight-regular);
+  line-height: 2.5;
+  font-size: calc(var(--font-Size) * 0.55);
+  position: relative;
+}
+
+.heading-secondary::after {
+  content: "*";
+  padding: 0.5rem;
+  color: var(--crl-Secondary-light);
+}
+
+.contact-form__details label input {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 2px solid var(--crl-Secondary-light);
+  cursor: pointer;
+  transition: border 0.5s ease, outline 0.5s ease, cursor 0.5s ease;
+}
+
+/* InputValidation */
+.error-message {
+  color: var(--crl-red);
+  font-weight: var(--font-Weight-bold);
+  line-height: 2;
+  font-size: calc(var(--font-Size) * 0.45);
+}
+
+input:focus {
+  border: none;
+  cursor: default;
+  outline: 2px solid var(--crl-Secondary-dark);
+}
+
+/* ----------------------------------Query */
+
+.contact-form__selection section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media only screen and (min-width: 64em) {
+  .contact-form__selection section {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .contact-form__selection .wrapper {
+    flex: 1;
+  }
+}
+
+.contact-form__selection .wrapper {
+  display: flex;
+  border: 2px solid var(--crl-Secondary-light);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  gap: 1.5rem;
+  background-color: transparent;
+  transition: background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.contact-form__selection .wrapper:nth-child(3) {
+  margin-top: 1.5rem;
+}
+
+.contact-form__selection input {
+  display: none;
+}
+
+.contact-form__selection label {
+  border: 1px solid var(--crl-Secondary-light);
+  width: 2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border 0.5s ease;
+}
+
+.contact-form__selection label img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.contact-form__selection input:checked + label {
+  border: 1px solid transparent;
+}
+.contact-form__selection input:checked + label img {
+  opacity: 1;
+}
+
+.contact-form__selection .wrapper h3 {
+  color: var(--crl-Secondary-dark);
+  font-weight: var(--font-Weight-regular);
+  font-size: calc(var(--font-Size) * 0.54);
+}
+
+/*------------------------------------Message*/
+.contact-form__complain {
+  margin-bottom: 3rem;
+}
+
+.contact-form__complain textarea {
+  width: 100%;
+  aspect-ratio: 1.5/1;
+  border-radius: 1rem;
+  border: 2px solid var(--crl-Secondary-light);
+  resize: none;
+  padding: 1rem;
+  transform: border 0.5s ease, ouline 0.5s ease;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 64em) {
+  .contact-form__complain textarea {
+    aspect-ratio: 5/1;
+  }
+}
+.contact-form__complain textarea:focus {
+  border: none;
+  outline: 2px solid var(--crl-Secondary-dark);
+  cursor: default;
+}
+
+/*---------------------------------------Terms*/
+
+.contact-form__complain-terms {
+  margin-bottom: 3rem;
+}
+.contact-form__complain-terms .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-form__complain-terms input {
+  display: none;
+}
+
+.contact-form__complain-terms .wrapper label {
+  height: 2rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--crl-Secondary-light);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.contact-form__complain-terms .wrapper label img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.contact-form__complain-terms .wrapper input:checked + label img {
+  opacity: 1;
+}
+
+.contact-form__complain-terms h4 {
+  font-size: calc(var(--font-Size) * 0.55);
+  color: var(--crl-Secondary-dark);
+  font-weight: var(--font-Weight-regular);
+}
+
+.contact-form__complain-terms h4::after {
+  content: "*";
+  margin-left: 0.5rem;
+  color: var(--crl-Primary-dark);
+}
+
+/* -------------------------------Submit */
+
+.submit button {
+  width: 100%;
+  padding: 1.5rem;
+  color: var(--crl-White);
+  cursor: pointer;
+  background-color: var(--crl-Primary-dark);
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  box-shadow: 0 0.5rem 1rem;
+  font-size: calc(var(--font-Size) * 0.6);
+  letter-spacing: 1px;
+}
+
+.submit button:hover,
+.submit button:focus {
+  animation: blink 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 3;
+}
+
+@keyframes blink {
+  0% {
+    background-color: var(--crl-Primary-dark);
+  }
+  20%,
+  30% {
+    background-color: var(--crl-Primary-light);
+  }
+  40%,
+  50% {
+    background-color: var(--crl-Secondary-dark);
+  }
+  60%,
+  70% {
+    background-color: var(--crl-Primary-dark);
+  }
+  100% {
+    background-color: var(--crl-Primary-dark);
+  }
+}
+
+/*----------------------------------------------------Footer */
+.attribution {
+  --_font: calc(clamp(1.2rem, 1.6vw, 1.9rem) * 0.8);
+  font-size: var(--_font);
+  text-align: center;
+  color: var(--crl-Primary-dark);
+  margin: 1rem auto;
+  font-weight: var(--font-Weight-bold);
+}
+.attribution a,
+.attribution a:active,
+.attribution a:link {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--crl-Primary-dark);
+  animation: magestic 2s infinite 2s;
+}
+
+.attribution a:hover,
+.attribution a:focus {
+  color: var(--crl-Primary-dark);
+}
+
+@keyframes magestic {
+  0%,
+  30% {
+    transform: translate(0);
+  }
+  49.99% {
+    --shadow: var(--crl-Primary-dark);
+    border-radius: 1rem;
+    border: 0;
+    box-shadow: inset 0 0.5rem 1rem var(--shadow);
+  }
+  50%,
+  100% {
+    transform: translate(1rem);
+  }
+}
+
+/*-------------------------------------- DomState: */
+
+.hide {
+  display: none !important;
+}
+
+/* .isNotValid {
+  border: 2px solid var(--crl-red);
+} */
+
+.isChecked {
+  background-color: var(--crl-Primary-light) !important;
+}
+
+.isValid {
+  outline: 2px solid var(--crl-Primary-dark) !important;
+  border: none;
+}
+
+.isNotValid {
+  outline: 2px solid var(--crl-red) !important;
+  border: none;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <main class="main">
+      <form class="contact-form" data-form>
+        <header class="contact-form__header">
+          <h1>Contact Us</h1>
+        </header>
+
+        <section class="contact-form__details">
+          <div class="wrapper">
+            <!-- First Name -->
+            <label for="firstname">
+              <h2 class="heading-secondary">First Name</h2>
+              <input
+                type="text"
+                id="firstname"
+                name="firstname"
+                pattern="[A-Za-z]+"
+                placeholder="John"
+                title="Please enter letters only"
+                aria-describedby="firstname-error"
+              />
+              <!-- error Message -->
+              <span id="firstname-error" class="error-message hide"> </span>
+            </label>
+
+            <!-- Last Name -->
+            <label for="lastname">
+              <h2 class="heading-secondary">Last Name</h2>
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                pattern="[A-Za-z]+"
+                placeholder="Doe"
+                title="Please enter letters only"
+                aria-describedby="lastname-error"
+              />
+              <!-- error Message -->
+              <span id="lastname-error" class="error-message hide"></span>
+            </label>
+          </div>
+
+          <!-- Email -->
+          <label for="email">
+            <h2 class="heading-secondary">Email Address</h2>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="john@gmail.com"
+              aria-describedby="email-error"
+            />
+            <!-- error Message -->
+            <span id="email-error" class="error-message hide"> </span>
+          </label>
+        </section>
+
+        <!-- Query Type -->
+        <section class="contact-form__selection">
+          <h2 class="heading-secondary">Query Type</h2>
+          <section>
+            <div class="wrapper" data-query>
+              <input
+                type="radio"
+                id="generalEnquiry"
+                name="query"
+                value="general"
+                aria-describedby="query-error"
+              />
+
+              <label for="generalEnquiry">
+                <img
+                  src="./assets/images/icon-radio-selected.svg"
+                  alt="Support Request Icon"
+                />
+              </label>
+              <h3>General Enquiry</h3>
+            </div>
+            <!-- 2 -->
+            <div class="wrapper" data-query>
+              <input
+                type="radio"
+                id="supportRequest"
+                name="query"
+                value="support"
+                aria-describedby="query-error"
+              />
+
+              <label for="supportRequest">
+                <img
+                  src="./assets/images/icon-radio-selected.svg"
+                  alt="Support Request Icon"
+                />
+              </label>
+
+              <h3>Support Request</h3>
+            </div>
+          </section>
+          <!-- error Message -->
+          <span id="query-error" class="error-message hide"></span>
+        </section>
+
+        <!-- Message -->
+        <section class="contact-form__complain">
+          <label for="message">
+            <h2 class="heading-secondary">Message</h2>
+            <textarea
+              id="message"
+              name="message"
+              aria-describedby="message-error"
+            ></textarea>
+            <!-- error Message -->
+            <span id="message-error" class="error-message hide"></span>
+          </label>
+        </section>
+
+        <!-- Terms -->
+        <section class="contact-form__complain-terms">
+          <div class="wrapper">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              aria-describedby="terms-error"
+            />
+            <label for="terms">
+              <img
+                src="./assets/images/icon-checkbox-check.svg"
+                alt="terms checked icon"
+              />
+            </label>
+            <h4>I consent to being contacted by the team</h4>
+          </div>
+          <!-- error Message -->
+          <span id="terms-error" class="error-message hide"></span>
+        </section>
+
+        <!-- Submit -->
+        <section class="submit">
+          <button type="submit">Submit</button>
+        </section>
+      </form>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#"> PeterGodsPower</a>.
+    </footer>
+  </body>
+</html>
